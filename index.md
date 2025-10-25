@@ -1,3 +1,1 @@
-# Stephen L. McMahon
-
 Working on it...
