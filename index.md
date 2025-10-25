@@ -11,7 +11,7 @@ You can also find me on [LinkedIn](https://www.linkedin.com/in/slmcmahon/) and [
 
 ---
 
-Some of my favorite internet resources:
+#### Some of my favorite internet resources:
 
 - [Farnam Street Blog](https://fs.blog/blog) - There are few places on the internet where i have spent more time than fs.blog.  If you want to take a trip down a rabbit hole of intellectual stimulation, then this is a good starting point.  Some of my favorites from there are:
 	- [Mastering Success: Navigating Within Your Circle of Competence](https://fs.blog/circle-of-competence/) 
