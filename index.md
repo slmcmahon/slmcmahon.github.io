@@ -21,7 +21,7 @@ Some of my favorite internet resources:
 - [Youtube: Einzelgänger](https://www.youtube.com/@Einzelg%C3%A4nger) - Einzelgänger explores a wide range of topics and ideas, with a dose of "as I see it," out of curiosity and creative urge.
 - [Youtube: Kurzgesagt – In a Nutshell](https://www.youtube.com/@kurzgesagt) - Animation videos explaining things with optimistic nihilism since 12,013.
 - [Youtube: Philosophies for Life](https://www.youtube.com/@PhilosophiesforLife) - Ancient Wisdom for Modern Living.
-- [Youtube: Milan Jovanović's](https://www.youtube.com/@MilanJovanovicTech) - .NET | Software Architecture | DDD
+- [Youtube: Milan Jovanović's](https://www.youtube.com/@MilanJovanovicTech) - .NET \| Software Architecture \| DDD
 - [Youtube: ArjanCodes](https://www.youtube.com/@ArjanCodes) - Become a Better Software Developer
 - [Morning Dew by Alvin Ashcraft](https://www.alvinashcraft.com/) - This is a great site for a daily dose of technical content.  I subscribe to the [RSS feed](https://www.alvinashcraft.com/feed/) via the [Vienna](https://www.vienna-rss.com/) RSS reader and I can honestly say that I have never experienced a day where I did not find something new or interesting here.  
 - [Tile 38](https://tile38.com/) - Ultra Fast Geospatial Database & Geofencing Server.  This is an MIT licensed, open source solution for building location based applications. I've always been intrigued by Geographical Information Systems and frequently when I am learning new programming languages and techniques, I use this as the base for my experimentation.
