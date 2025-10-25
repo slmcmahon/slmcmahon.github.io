@@ -1,7 +1,7 @@
 
 Hi, I’m [Stephen](mailto:stephen+blog@slmcmahon.com), a software architect and programmer. I’ve spent much of my career building custom software solutions, mostly with Microsoft .NET technologies, but I enjoy working with Python and Go whenever I can. These days, I spend my time solving technical puzzles and finding ways to simplify complex systems.
 
-While I’m a professional problem solver, my interests go beyond code. I enjoy diving into philosophy—especially Eastern thought—and how it can help me look at life, work, and relationships in a different light. It is part of my ongoing journey to better understand who I am, even though I believe “who we are” is always evolving. I like to use ChatGPT as a sounding board for [[_ What is this? | all kinds of random stuff]].
+While I’m a professional problem solver, my interests go beyond code. I enjoy diving into philosophy—especially Eastern thought—and how it can help me look at life, work, and relationships in a different light. It is part of my ongoing journey to better understand who I am, even though I believe “who we are” is always evolving. I like to use ChatGPT as a sounding board for all kinds of random stuff.
 
 On the topic of ChatGPT, someone once asked me, ‘Isn’t it cheating to use ChatGPT to answer software development problems?’ Of course, it isn’t! My job is to create IT solutions to business problems, not to compete. It would be foolish _not_ to use AI when its very purpose is to enhance and augment human intelligence!
 
