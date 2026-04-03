@@ -1,5 +1,10 @@
-Go - Using MS SQL Server
---
+---
+layout: post
+title: "Go and SQL Server"
+date: 2024-09-01
+---
+
+## Go - Using MS SQL Server
 
 The following are very simple examples of how to read/write data to SQL Server with the Go programming language
 
