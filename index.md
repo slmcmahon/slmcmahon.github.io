@@ -84,7 +84,7 @@ Beyond coding, I'm deeply interested in philosophy, especially Eastern thought, 
 
 Originally from East Texas and now based in Bogota, Colombia, I spend my time solving technical puzzles, simplifying complex systems, and helping teams build better software with clarity and intent.
 
-You can also find me on [LinkedIn](https://www.linkedin.com/in/slmcmahon/) and [GitHub](https://github.com/slmcmahon). If you want to engage directly, then you can [send me an email](mailto:stephen+blog@slmcmahon.com).
+You can also find me on [LinkedIn](https://www.linkedin.com/in/slmcmahon/) and [GitHub](https://github.com/slmcmahon). 
 
 ---
 
