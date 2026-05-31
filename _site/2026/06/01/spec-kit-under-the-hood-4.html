@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Spec Kit - Under the Hood - Part 4 | Stephen L. McMahon</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Spec Kit - Under the Hood - Part 4" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Part 4. Blueprint to Code - How speckit.plan and speckit.tasks Prevent Architectural Drift" />
+<meta property="og:description" content="Part 4. Blueprint to Code - How speckit.plan and speckit.tasks Prevent Architectural Drift" />
+<meta property="og:site_name" content="Stephen L. McMahon" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-06-01T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spec Kit - Under the Hood - Part 4" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-06-01T00:00:00-05:00","datePublished":"2026-06-01T00:00:00-05:00","description":"Part 4. Blueprint to Code - How speckit.plan and speckit.tasks Prevent Architectural Drift","headline":"Spec Kit - Under the Hood - Part 4","mainEntityOfPage":{"@type":"WebPage","@id":"/2026/06/01/spec-kit-under-the-hood-4.html"},"url":"/2026/06/01/spec-kit-under-the-hood-4.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Stephen L. McMahon" /></head>
+<style>
+      .page-content .wrapper {
+        max-width: min(75vw, 1600px);
+      }
+
+      @media (max-width: 900px) {
+        .page-content .wrapper {
+          max-width: 94vw;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var blocks = document.querySelectorAll("pre > code.language-mermaid");
+
+        blocks.forEach(function (code) {
+          var pre = code.parentElement;
+          var container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = code.textContent;
+          pre.replaceWith(container);
+        });
+
+        if (window.mermaid) {
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: "default"
+          });
+          mermaid.run({ querySelector: ".mermaid" });
+        }
+      });
+    </script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Stephen L. McMahon</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Spec Kit - Under the Hood - Part 4</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-06-01T00:00:00-05:00" itemprop="datePublished">Jun 1, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="part-4-blueprint-to-code---how-speckitplan-and-speckittasks-prevent-architectural-drift">Part 4. Blueprint to Code - How speckit.plan and speckit.tasks Prevent Architectural Drift</h1>
+
+<p>Up to this point in our best-practices series, our focus has been entirely within the domain of product requirements. We used <code class="language-plaintext highlighter-rouge">.constitution</code> to establish the global guardrails, and we synchronized <code class="language-plaintext highlighter-rouge">.specify</code> and <code class="language-plaintext highlighter-rouge">.clarify</code> to build a dense, hardened product specification (<code class="language-plaintext highlighter-rouge">spec.md</code>) under 300 lines of text.</p>
+
+<p>Now comes the critical pivot in Spec-Driven Development (SDD): <strong>translating business requirements into an engineering architecture.</strong></p>
+
+<p>In standard AI assistance workflows, developers often paste their specification file along with five or six raw source files into a chat box and say, <em>“Implement this.”</em> This is an invitation for disaster. The LLM tries to simultaneously reason through product logic, parse large blocks of code syntax, and invent an implementation strategy on the fly. The result is almost always architectural drift, hallucinated APIs, and broke dependencies.</p>
+
+<p>Spec-Kit solves this by splitting engineering execution into two distinct, highly isolated steps: <code class="language-plaintext highlighter-rouge">/speckit.plan</code> and <code class="language-plaintext highlighter-rouge">/speckit.tasks</code>. Let’s look under the hood at the underlying data coordination and LLM interaction mechanics of this engineering transition.</p>
+
+<h2 id="the-mechanical-boundary-architecture-vs-break-down">The Mechanical Boundary: Architecture vs. Break-Down</h2>
+
+<p>The core rule of context management during engineering execution is that <strong>designing a plan is a completely separate cognitive task from scheduling atomic work.</strong> The transition is handled via a programmatic two-step handshake that converts your requirement document into a technical blueprint, and then into an actionable, byte-sized checklist.</p>
+
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Dev as Developer / Architect
+    participant FS as Local Workspace (Git)
+    participant SK as Spec-Kit Core Engine
+    participant LLM as Underlying AI Model
+
+    %% Step 4: Planning
+    Note over Dev, LLM: Phase 1: Architectural Mapping
+    Dev-&gt;&gt;SK: Run `/speckit.plan`
+    SK-&gt;&gt;FS: Read `spec.md` + Active Codebase Tree Index (AST File Paths)
+    SK-&gt;&gt;LLM: Context: Global Constitution + Final Spec + Code Repository Outline
+    Note over LLM: Evaluates where requirements intersect&lt;br/&gt;with existing file structures.
+    LLM--&gt;&gt;SK: Return Structural Implementation Plan
+    SK-&gt;&gt;FS: Write Plan to `specs/feature/plan.md`
+
+    %% Step 5: Tasking
+    Note over Dev, LLM: Phase 2: Actionable Task Break-Down
+    Dev-&gt;&gt;SK: Run `/speckit.tasks`
+    SK-&gt;&gt;FS: Read `plan.md`
+    SK-&gt;&gt;LLM: Context: Read Implementation Plan Only
+    Note over LLM: Breaks down macro architectural changes&lt;br/&gt;into sequential, isolated code tasks.
+    LLM--&gt;&gt;SK: Return Checklist of Atomic Tasks
+    SK-&gt;&gt;FS: Append Checklist to `specs/feature/tasks.md`
+</code></pre>
+
+<h2 id="phase-1-the-context-injection-matrix-of-speckitplan">Phase 1: The Context Injection Matrix of <code class="language-plaintext highlighter-rouge">/speckit.plan</code></h2>
+
+<p>When you run <code class="language-plaintext highlighter-rouge">/speckit.plan</code>, the agent doesn’t read your entire codebase line-by-line—doing so would immediately exhaust your token window and inject massive amounts of noisy syntax into the model’s short-term memory.</p>
+
+<p>Instead, Spec-Kit constructs a high-level representation of your repository. It builds a payload consisting of:</p>
+
+<ol>
+  <li><strong>The Global Constitution:</strong> (To remind the model of your core stack, e.g., Next.js, .NET 8, PostgreSQL).</li>
+  <li><strong>The Finalized spec.md:</strong><code class="language-plaintext highlighter-rouge">spec.md</code> (The business requirements source of truth).</li>
+  <li><strong>The Repository File Tree Index:</strong> An abstract layout of file paths, directories, and top-level entry points (controllers, routing files, data contexts).</li>
+</ol>
+
+<p>The model evaluates these three inputs to map out the surface area of the change. It identifies exactly which existing files must be modified, which new files must be created, and which files can remain untouched.</p>
+
+<p>The output is written to disk as <code class="language-plaintext highlighter-rouge">specs/feature/plan.md</code>. This file acts as a high-level blueprint:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Implementation Plan: Drag-and-Drop Photo Upload</span>
+
+<span class="gu">### Proposed Changes</span>
+<span class="p">*</span> CREATE: <span class="sb">`src/components/ui/FileUploader.tsx`</span> (New client component)
+<span class="p">*</span> MODIFY: <span class="sb">`src/app/settings/profile/page.tsx`</span> (Integrate uploader component)
+<span class="p">*</span> MODIFY: <span class="sb">`src/api/profile/upload/route.ts`</span> (Handle payload size validation)
+
+<span class="gu">### Data Flow Impact</span>
+<span class="p">*</span> Component triggers client-side compression -&gt; POST request to api route -&gt; updates profile state.
+</code></pre></div></div>
+
+<h2 id="phase-2-protecting-attention-via-atomic-break-down-speckittasks">Phase 2: Protecting Attention via Atomic Break-Down (<code class="language-plaintext highlighter-rouge">/speckit.tasks</code>)</h2>
+
+<p>Once <code class="language-plaintext highlighter-rouge">plan.md</code> is written, you have a solid architectural map. But you still shouldn’t write code yet. A macro plan like <em>“Modify the API route to handle payload size validation”</em> contains multiple distinct steps. If an LLM attempts to execute that entire line at once, it will likely skip edge cases or fail to write clean error handling.</p>
+
+<p>This is where <code class="language-plaintext highlighter-rouge">/speckit.tasks</code> steps in, enforcing a strict context filter.</p>
+
+<p>When you run <code class="language-plaintext highlighter-rouge">/speckit.tasks</code>, the engine <strong>completely isolates the payload.</strong> It does <em>not</em> look back at the original <code class="language-plaintext highlighter-rouge">spec.md</code>, nor does it pull the repository file index again. It reads <strong>only</strong> the <code class="language-plaintext highlighter-rouge">plan.md</code> blueprint. It asks the model a single, highly focused question: <em>“Break this macro architectural plan down into sequential, atomic execution blocks that a single agent can write without changing contexts.”</em></p>
+
+<p>The model outputs a highly granular, checklist-style markdown file (<code class="language-plaintext highlighter-rouge">specs/feature/tasks.md</code>):</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Task List: Photo Upload Implementation</span>
+<span class="p">
+-</span> [ ] Task 1: Create <span class="sb">`FileUploader.tsx`</span> with basic drag-and-drop UI and file type constraints.
+<span class="p">-</span> [ ] Task 2: Implement client-side image compression logic inside <span class="sb">`FileUploader.tsx`</span>.
+<span class="p">-</span> [ ] Task 3: Update <span class="sb">`route.ts`</span> to implement 5MB hard boundaries and throw explicit HTTP 413 exceptions.
+<span class="p">-</span> [ ] Task 4: Integrate <span class="sb">`FileUploader.tsx`</span> into the profile settings page view.
+</code></pre></div></div>
+
+<h2 id="why-the-plantask-split-protects-token-budgets">Why the Plan/Task Split Protects Token Budgets</h2>
+
+<p>By separating planning from task extraction, Spec-Kit avoids the <strong>“Reasoning Overload”</strong> that tanks typical AI coding assistants.</p>
+
+<p>If you bundle planning and tasking into a single step, the model has to balance product logic, file paths, structural architecture, and micro-coding tasks all in the same output generation. The model’s attention is spread thin across multiple cognitive layers, leading to generic plans and missed requirements.</p>
+
+<p>By forcing a hard file boundary between <code class="language-plaintext highlighter-rouge">plan.md</code> and <code class="language-plaintext highlighter-rouge">tasks.md</code>, the model has a single objective per command:</p>
+
+<ul>
+  <li>
+    <p><strong>The Planning Command</strong> only focuses on <strong>Where</strong> changes happen.</p>
+  </li>
+  <li>
+    <p><strong>The Tasking Command</strong> only focuses on <strong>How</strong> to break those changes into a sequential timeline.</p>
+  </li>
+</ul>
+
+<h2 id="whats-next">What’s Next</h2>
+
+<p>Your feature has been analyzed, planned, and broken down into a hyper-focused checklist of independent engineering blocks. The architecture is locked down on disk.</p>
+
+<p>In <a href="/2026/06/01/spec-kit-under-the-hood-5.html"><strong>Part 5: Execution, Validation, and Customization</strong></a>, we will explore the final phase of the Spec-Kit lifecycle: running <code class="language-plaintext highlighter-rouge">/speckit.implement</code> against our isolated task list, applying surgical code diffs to our repository, and using quality gates to ensure the final code perfectly aligns with our initial constitution.</p>
+
+  </div><a class="u-url" href="/2026/06/01/spec-kit-under-the-hood-4.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Stephen L. McMahon</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Stephen L. McMahon</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thoughts, architecture, random stuff.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+</html>

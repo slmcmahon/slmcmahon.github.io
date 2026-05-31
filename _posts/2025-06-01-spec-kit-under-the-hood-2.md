@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Spec Kit - Under the Hood - Part 2"
-date: 2025-06-01
+date: 2026-06-01
 ---
 
 # Part 2. Drafting an Immutable Constitution - Optimizing Global Prompts
 
-In the [first article](./spec-kit-under-the-hood-1.md) of this series, we mapped out the 7-step lifecycle of Spec-Kit and introduced the concept of **Context Isolation**. We established that the local files in your repository serve as an immutable state machine, allowing us to sever conversational chat history and keep LLM payloads lean.
+In the [first article]({% post_url 2025-06-01-spec-kit-under-the-hood-1 %}) of this series, we mapped out the 7-step lifecycle of Spec-Kit and introduced the concept of **Context Isolation**. We established that the local files in your repository serve as an immutable state machine, allowing us to sever conversational chat history and keep LLM payloads lean.
 
 But context isolation only works if the model still understands your organizational boundaries, architectural stacks, and security compliance rules. If we don’t pass this information in a chat history, where does it live?
 
@@ -102,4 +102,4 @@ Local feature variations do not belong in global memory. If a single feature req
 
 Now that we have established an immutable, token-optimized global playground via our constitution, we can safely allow our developers to begin defining features.
 
-In [**Part 3: The Specify & Clarify Loop**](./spec-kit-under-the-hood-3.md), we will analyze the mechanical handshake between `/speckit.specify` and `/speckit.clarify`, exploring how to extract rock-solid product requirements from a tiny seed prompt without triggering a massive rewriting tax.
+In [**Part 3: The Specify & Clarify Loop**]({% post_url 2025-06-01-spec-kit-under-the-hood-3 %}), we will analyze the mechanical handshake between `/speckit.specify` and `/speckit.clarify`, exploring how to extract rock-solid product requirements from a tiny seed prompt without triggering a massive rewriting tax.

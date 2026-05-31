@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spec Kit - Under the Hood - Part 5"
-date: 2025-06-01
+date: 2026-06-01
 ---
 
 # Part 5. Execution, Validation, and Customization - Surgical Code Generation without Model Fatigue

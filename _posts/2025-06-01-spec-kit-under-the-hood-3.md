@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Spec Kit - Under the Hood - Part 3"
-date: 2025-06-01
+date: 2026-06-01
 ---
 
 # Part 3. The Specify and Clarify Loop - Extracting Bulletproof Requirements Without Token Bloat
 
-In [Part 2](spec-kit-under-the-hood-2.md), we optimized the global playground by compressing the constitution down to a lean, declarative set of immutable rules. With our system constraints solidified, we can now look at how Spec-Kit initiates a new feature.
+In [Part 2]({% post_url 2025-06-01-spec-kit-under-the-hood-2 %}), we optimized the global playground by compressing the constitution down to a lean, declarative set of immutable rules. With our system constraints solidified, we can now look at how Spec-Kit initiates a new feature.
 
 The entry point of any new piece of functionality relies on a tight coordination loop between two commands: `/speckit.specify` and `/speckit.clarify`.
 
@@ -106,4 +106,4 @@ By decoupling requirement expansion (`.specify`) from analytical audit loops (`.
 
 Your specification file is now locked down, verified by a human, hardened by an automated critique, and saved cleanly to disk under 300 lines of highly accurate text.
 
-In [**Part 4: Blueprint to Code**](spec-kit-under-the-hood-4.md), we will move out of product requirements and dive into engineering execution, analyzing how `/speckit.plan` and `/speckit.tasks` consume this markdown state to map out architectural changes across your repository without inducing context window fatigue.
+In [**Part 4: Blueprint to Code**]({% post_url 2025-06-01-spec-kit-under-the-hood-4 %}), we will move out of product requirements and dive into engineering execution, analyzing how `/speckit.plan` and `/speckit.tasks` consume this markdown state to map out architectural changes across your repository without inducing context window fatigue.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spec Kit - Under the Hood - Part 4"
-date: 2025-06-01
+date: 2026-06-01
 ---
 
 # Part 4. Blueprint to Code - How speckit.plan and speckit.tasks Prevent Architectural Drift
@@ -107,4 +107,4 @@ By forcing a hard file boundary between `plan.md` and `tasks.md`, the model has 
 
 Your feature has been analyzed, planned, and broken down into a hyper-focused checklist of independent engineering blocks. The architecture is locked down on disk.
 
-In [**Part 5: Execution, Validation, and Customization**](spec-kit-under-the-hood-5.md), we will explore the final phase of the Spec-Kit lifecycle: running `/speckit.implement` against our isolated task list, applying surgical code diffs to our repository, and using quality gates to ensure the final code perfectly aligns with our initial constitution.
+In [**Part 5: Execution, Validation, and Customization**]({% post_url 2025-06-01-spec-kit-under-the-hood-5 %}), we will explore the final phase of the Spec-Kit lifecycle: running `/speckit.implement` against our isolated task list, applying surgical code diffs to our repository, and using quality gates to ensure the final code perfectly aligns with our initial constitution.

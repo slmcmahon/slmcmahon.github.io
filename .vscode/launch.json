@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jekyll Preview (Podman)",
+      "type": "node-terminal",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "command": "podman machine start >/dev/null 2>&1 || true && podman run --rm -it --platform linux/amd64 -p 4000:4000 -v \"${workspaceFolder}\":/srv/jekyll -v jekyll-gems:/usr/gem docker.io/jekyll/jekyll:pages sh -lc \"gem list -i webrick >/dev/null || gem install webrick --no-document; jekyll serve --host 0.0.0.0 --livereload --force_polling --future\""
+    }
+  ]
+}

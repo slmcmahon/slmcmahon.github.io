@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spec Kit - Under the Hood - Part 1"
-date: 2025-06-01
+date: 2026-06-01
 ---
 
 # Part 1. Inside Spec-Kit - How Prompts, Context, and LLMs Coordinate to Write Software
@@ -108,7 +108,7 @@ Now that we have mapped out the global data flow and the 7 core touchpoints betw
 
 In the upcoming articles in this best-practices series, we will dive deep into each individual command to look at exact prompt payloads, token budget management, and markdown design patterns:
 
-- [**Part 2:** Drafting an Immutable Constitution (Optimizing Global Prompts)](spec-kit-under-the-hood-2.md)
-- [**Part 3:** The Specify & Clarify Loop (Extracting Bulletproof Requirements Without Token Bloat)](./spec-kit-under-the-hood-3.md)
-- [**Part 4:** Blueprint to Code (How /speckit.plan and /speckit.tasks prevent architectural drift)](./spec-kit-under-the-hood-4.md)
-- [**Part 5**: Execution, Validation, and Customization (Surgical Code Generation without Model Fatigue)](./spec-kit-under-the-hood-5.md)
+- [**Part 2:** Drafting an Immutable Constitution (Optimizing Global Prompts)]({% post_url 2025-06-01-spec-kit-under-the-hood-2 %})
+- [**Part 3:** The Specify & Clarify Loop (Extracting Bulletproof Requirements Without Token Bloat)]({% post_url 2025-06-01-spec-kit-under-the-hood-3 %})
+- [**Part 4:** Blueprint to Code (How /speckit.plan and /speckit.tasks prevent architectural drift)]({% post_url 2025-06-01-spec-kit-under-the-hood-4 %})
+- [**Part 5**: Execution, Validation, and Customization (Surgical Code Generation without Model Fatigue)]({% post_url 2025-06-01-spec-kit-under-the-hood-5 %})

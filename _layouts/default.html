@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    {%- include head.html -%}
+    <style>
+      .page-content .wrapper {
+        max-width: min(75vw, 1600px);
+      }
+
+      @media (max-width: 900px) {
+        .page-content .wrapper {
+          max-width: 94vw;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var blocks = document.querySelectorAll("pre > code.language-mermaid");
+
+        blocks.forEach(function (code) {
+          var pre = code.parentElement;
+          var container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = code.textContent;
+          pre.replaceWith(container);
+        });
+
+        if (window.mermaid) {
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: "default"
+          });
+          mermaid.run({ querySelector: ".mermaid" });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+  </body>
+</html>

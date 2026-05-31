@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Rebuild Jekyll (future posts)",
+			"type": "shell",
+			"command": "podman machine start >/dev/null 2>&1 || true && podman run --rm --platform linux/amd64 -v \"$PWD\":/srv/jekyll -v jekyll-gems:/usr/gem docker.io/jekyll/jekyll:pages sh -lc \"gem list -i webrick >/dev/null || gem install webrick --no-document; jekyll build --future\"",
+			"isBackground": false
+		}
+	]
+}
