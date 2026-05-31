@@ -74,11 +74,11 @@ title: Home
 
 <div class="home-bio" markdown="1">
 
-Hi, I'm [Stephen](mailto:stephen+blog@slmcmahon.com), a software architect, programmer, and pragmatic enterprise problem solver. For more than three decades, I've built and sustained software systems through every wave of change in corporate IT, from legacy platforms to modern cloud-native architectures. My foundation is Microsoft .NET, but I also enjoy working in Python and Go when the problem calls for it.
+Hi, I'm [Stephen](mailto:stephen+blog@slmcmahon.com), a software architect, programmer, and pragmatic enterprise problem solver. For more than three decades, I've built and sustained software systems through every wave of change in corporate IT, from legacy platforms to modern cloud-native architectures. While I have deep experience in Microsoft .NET, my language preference is Go and Python.
 
 Today, my focus is helping my organization shift to AI-first software delivery and sharing what I learn with the casual readers of my content. I strive to design spec-driven development workflows where precise specifications, token discipline, and clean context are treated as first-class engineering assets. I see generative AI as a precision engine, not a shortcut: when architecture and intent are explicit, AI becomes a high-velocity execution partner that can scale output without scaling technical debt.
 
-My core philosophy is simple: the spec is the code. If we can't explain architecture clearly enough for an AI to execute, we probably don't understand it well enough ourselves. Tools, languages, and frameworks matter, but durable systems are built on deterministic design, strong observability, and robust telemetry.
+Within spec-driven development, a guiding idea is that the spec is the code. If we can't explain architecture clearly enough for an AI to execute, we probably don't understand it well enough ourselves. Tools, languages, and frameworks matter, but durable systems are built on deterministic design, strong observability, and robust telemetry.
 
 Beyond coding, I'm deeply interested in philosophy, especially Eastern thought, and how it shapes perspective on life, work, and relationships. I use Gemini as a sounding board for technical ideas and broader questions alike. I don't claim to have all the answers, but I care deeply about learning, teaching, and sharing what works.
 
