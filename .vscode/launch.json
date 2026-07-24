@@ -6,7 +6,12 @@
       "type": "node-terminal",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "command": "podman machine start >/dev/null 2>&1 || true && podman run --rm -it --platform linux/amd64 -p 4000:4000 -v \"${workspaceFolder}\":/srv/jekyll -v jekyll-gems:/usr/gem docker.io/jekyll/jekyll:pages sh -lc \"gem list -i webrick >/dev/null || gem install webrick --no-document; jekyll serve --host 0.0.0.0 --livereload --force_polling --future\""
+      "command": "podman machine start >/dev/null 2>&1 || true && until podman info >/dev/null 2>&1; do sleep 1; done && podman run --rm --platform linux/amd64 -p 4000:4000 -v \"${workspaceFolder}\":/srv/jekyll -v jekyll-gems:/usr/gem docker.io/jekyll/jekyll:pages sh -lc \"gem list -i webrick >/dev/null || gem install webrick --no-document; jekyll serve --host 0.0.0.0 --livereload --force_polling --future\"",
+      "serverReadyAction": {
+        "pattern": "Server address:\\s+(https?://\\S+)",
+        "uriFormat": "http://localhost:4000",
+        "action": "openExternally"
+      }
     }
   ]
 }
