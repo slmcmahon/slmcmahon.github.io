@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-07-24T14:56:51+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Stephen L. McMahon</title><subtitle>Thoughts, architecture, random stuff.</subtitle><entry><title type="html">Prompting Still Matters</title><link href="http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy.html" rel="alternate" type="text/html" title="Prompting Still Matters" /><published>2026-07-24T00:00:00+00:00</published><updated>2026-07-24T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy</id><content type="html" xml:base="http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy.html"><![CDATA[<p>Something I have been noticing lately concerns me, and I think it is worth a closer look.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-07-26T19:04:35+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Stephen L. McMahon</title><subtitle>Thoughts, architecture, random stuff.</subtitle><entry><title type="html">Uncle Bob on AI</title><link href="http://0.0.0.0:4000/2026/07/26/uncle-bob-on-ai.html" rel="alternate" type="text/html" title="Uncle Bob on AI" /><published>2026-07-26T00:00:00+00:00</published><updated>2026-07-26T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/07/26/uncle-bob-on-ai</id><content type="html" xml:base="http://0.0.0.0:4000/2026/07/26/uncle-bob-on-ai.html"><![CDATA[<p>If you have been in software development for more than a few years, chances are you have heard of <strong>Robert C. Martin</strong>, better known as <strong>“Uncle Bob.”</strong></p>
+
+<p>Even if you do not recognize the name immediately, your day-to-day work has almost certainly been shaped by his legacy. He organized and popularized the <strong>S.O.L.I.D.</strong> design principles (<a href="https://youtu.be/RxxxGkFIUJ0?t=50">00:50</a>). While the individual ideas were not all brand new, he synthesized them into a framework that helped spark a software craftsmanship movement. He was also one of the original signers of the <strong>Agile Manifesto</strong> (<a href="https://youtu.be/RxxxGkFIUJ0?t=50">00:50</a>), and the author of staples like <strong>Clean Code</strong> (<a href="https://youtu.be/RxxxGkFIUJ0?t=16">00:16</a>) and <strong>Clean Architecture</strong> (<a href="https://youtu.be/RxxxGkFIUJ0?t=260">04:20</a>).</p>
+
+<p>If you search for Uncle Bob on YouTube, you will find thousands of talks on craftsmanship, TDD, and software patterns. But a recent conversation caught my attention. In a podcast episode hosted by <strong>Kent C. Dodds</strong>, titled <em>Architecture, AI agents, and product empathy with Robert C. Martin</em>, Uncle Bob dives into how he is using AI coding agents today.</p>
+
+<p>You can watch the full episode here:</p>
+
+<p><strong><a href="https://youtu.be/RxxxGkFIUJ0">Architecture, AI agents, and product empathy with Robert C. Martin</a></strong></p>
+
+<h2 id="1-the-shocking-shift-walking-away-from-the-code">1. The Shocking Shift: Walking Away from the Code</h2>
+
+<p>Coming from the author of <em>Clean Code</em>, one statement in particular hit like a lightning bolt:</p>
+
+<blockquote>
+  <p>“If we are going to get the benefit from these agents, then we are going to have to walk away from the code.” (<a href="https://youtu.be/RxxxGkFIUJ0?t=482">08:02</a>)</p>
+</blockquote>
+
+<p>Hearing Uncle Bob say that felt shocking at first. But as he explains, code syntax is simply the latest layer of low-level detail we are rising above (<a href="https://youtu.be/RxxxGkFIUJ0?t=386">06:26</a>), much like developers once transitioned away from paper tape or hand-crafted assembly language (<a href="https://youtu.be/RxxxGkFIUJ0?t=359">05:59</a>).</p>
+
+<p>Rather than obsessing over line-by-line syntax, he describes using AI agents to handle low-level implementation while he interrogates system-level structure, module dependencies, and architectural boundaries (<a href="https://youtu.be/RxxxGkFIUJ0?t=538">08:58</a>).</p>
+
+<h2 id="2-building-design-sense-curiosity-and-play">2. Building Design Sense: Curiosity and Play</h2>
+
+<p>When Kent asked how engineers can cultivate better design judgment, a uniquely human skill that AI agents still lack, Uncle Bob offered advice that resonated deeply with me (<a href="https://youtu.be/RxxxGkFIUJ0?t=1515">25:15</a>):</p>
+
+<blockquote>
+  <p><strong>Just play: try things, make mistakes, and stay curious.</strong></p>
+</blockquote>
+
+<p>To internalize architecture, you have to get your hands dirty (<a href="https://youtu.be/RxxxGkFIUJ0?t=1556">25:56</a>). Build silly tools, write side projects, shape ideas in code, and learn from the friction when something breaks (<a href="https://youtu.be/RxxxGkFIUJ0?t=1522">25:22</a>). Curiosity and experimentation build intuition that no book or prompt can replace.</p>
+
+<h2 id="3-product-empathy-bridging-it-and-the-field">3. Product Empathy: Bridging IT and the Field</h2>
+
+<p>Near the end of the episode, Uncle Bob shared a story from 40 years ago. His manager forced him to get out of the office and spend a day in a repair truck with a field technician testing telephone lines (<a href="https://youtu.be/RxxxGkFIUJ0?t=2180">36:20</a>).</p>
+
+<p>That story highlights what true <strong>product engineering</strong> is all about: combining technical depth with human empathy (<a href="https://youtu.be/RxxxGkFIUJ0?t=2260">37:40</a>).</p>
+
+<p>In software development, we are often many layers removed from the engineers, technicians, and frontline staff whose daily work creates the need for our systems. It serves both us and our organizations to step into their world, understand real pain points, and design solutions that make their work easier (<a href="https://youtu.be/RxxxGkFIUJ0?t=2333">38:53</a>).</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>Whether you are fully embracing AI agents or still skeptical, hearing one of the founding voices of clean software design share his hands-on workflow and architectural perspective is worth 40 minutes of your time.</p>
+
+<p>Watch the full discussion here: <strong><a href="https://youtu.be/RxxxGkFIUJ0">https://youtu.be/RxxxGkFIUJ0</a></strong></p>]]></content><author><name></name></author><summary type="html"><![CDATA[If you have been in software development for more than a few years, chances are you have heard of Robert C. Martin, better known as “Uncle Bob.”]]></summary></entry><entry><title type="html">Prompting Still Matters</title><link href="http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy.html" rel="alternate" type="text/html" title="Prompting Still Matters" /><published>2026-07-24T00:00:00+00:00</published><updated>2026-07-24T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy</id><content type="html" xml:base="http://0.0.0.0:4000/2026/07/24/dont-let-it-atrophy.html"><![CDATA[<p>Something I have been noticing lately concerns me, and I think it is worth a closer look.</p>
 
 <h2 id="the-pattern">The Pattern</h2>
 
