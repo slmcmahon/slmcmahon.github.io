@@ -16,7 +16,7 @@ You can watch the full episode here:
 
 ## 1. The Shocking Shift: Walking Away from the Code
 
-Coming from the author of *Clean Code*, one statement in particular hit like a lightning bolt:
+Coming from the author of *Clean Code*, one statement was surprising:
 
 > "If we are going to get the benefit from these agents, then we are going to have to walk away from the code." ([08:02](https://youtu.be/RxxxGkFIUJ0?t=482))
 
